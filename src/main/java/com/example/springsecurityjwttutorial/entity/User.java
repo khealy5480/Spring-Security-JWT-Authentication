@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,6 @@ public class User {
     private Long id;
 
     private String email;
-
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 

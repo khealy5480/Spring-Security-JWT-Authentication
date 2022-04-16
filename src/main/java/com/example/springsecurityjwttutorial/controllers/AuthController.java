@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Collections;
 import java.util.Map;
 
@@ -22,6 +27,7 @@ import java.util.Map;
 public class AuthController {
 
     // Injecting Dependencies
+    //@Autowired private User user;
     @Autowired private UserRepo userRepo;
     @Autowired private JWTUtil jwtUtil;
     @Autowired private AuthenticationManager authManager;
@@ -69,6 +75,4 @@ public class AuthController {
             throw new RuntimeException("Invalid Login Credentials");
         }
     }
-
-
 }

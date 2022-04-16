@@ -24,6 +24,4 @@ public class UserController {
         // Fetch and return user details
         return userRepo.findByEmail(email).get();
     }
-
-
 }
