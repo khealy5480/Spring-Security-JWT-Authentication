@@ -71,7 +71,7 @@ public class AuthController {
             // Respond with the JWT
             return Collections.singletonMap("jwt-token", token);
         }catch (AuthenticationException authExc){
-            // Auhentication Failed
+            // Authentication Failed
             throw new RuntimeException("Invalid Login Credentials");
         }
     }
