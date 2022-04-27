@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors() // Enabling cors
                 .and()
                 .authorizeHttpRequests() // Authorizing incoming requests
-                .antMatchers("/api/auth/**").permitAll() // Allows auth requests to be made without authentication of any sort
+                .antMatchers( "/api/auth/**").permitAll() // Allows auth requests to be made without authentication of any sort
                 .antMatchers("/api/user/**").hasRole("USER") // Allows only users with the "USER" role to make requests to the user routes
                 .and()
                 .userDetailsService(uds) // Setting the user details service to the custom implementation
