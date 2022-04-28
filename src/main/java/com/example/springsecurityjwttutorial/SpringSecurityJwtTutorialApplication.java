@@ -19,10 +19,10 @@ public class SpringSecurityJwtTutorialApplication {
 	@PostConstruct
 	public void initUsers() {
 		List<User> users = Stream.of(
-			new User(101L, "Name1", "test1@nowhere.com", "pass1"),
-			new User(102L, "Name2", "test2@nowhere.com", "pass2"),
-			new User(103L, "Name3", "test3@nowhere.com", "pass3"),
-			new User(104L, "Name4", "test4@nowhere.com", "pass4")
+			new User(101L, "Name1", "test1@nowhere.com", "pass1","user"),
+			new User(102L, "Name2", "test2@nowhere.com", "pass2","user"),
+			new User(103L, "Name3", "test3@nowhere.com", "pass3","user"),
+			new User(104L, "Name4", "test4@nowhere.com", "pass4","user")
 		).collect(Collectors.toList());
 		userRepo.saveAll(users);
 	}
