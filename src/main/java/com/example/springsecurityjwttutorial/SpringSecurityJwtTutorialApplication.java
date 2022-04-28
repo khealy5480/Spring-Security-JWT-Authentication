@@ -2,6 +2,7 @@ package com.example.springsecurityjwttutorial;
 
 import com.example.springsecurityjwttutorial.entity.User;
 import com.example.springsecurityjwttutorial.repository.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +13,7 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class SpringSecurityJwtTutorialApplication {
+	@Autowired
 	UserRepo userRepo;
 
 	@PostConstruct
@@ -23,13 +25,9 @@ public class SpringSecurityJwtTutorialApplication {
 			new User(104L, "Name4", "test4@nowhere.com", "pass4")
 		).collect(Collectors.toList());
 		userRepo.saveAll(users);
-
-
-
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSecurityJwtTutorialApplication.class, args);
 	}
-
 }

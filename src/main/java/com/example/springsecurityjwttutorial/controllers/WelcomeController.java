@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // Marks the class a rest controller
-@RequestMapping // Requests made to /api/auth/anything will be handles by this class
+@RequestMapping // Requests that will be handles by this class
 public class WelcomeController {
 
 
