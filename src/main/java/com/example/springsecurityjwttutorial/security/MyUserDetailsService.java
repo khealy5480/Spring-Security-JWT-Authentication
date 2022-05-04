@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 // A UserDetailsService is used to fetch the user details of the user trying to authenticate
@@ -27,6 +28,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         // Fetch User from the DB
         Optional<User> userRes = userRepo.findByEmail(email);
+
         // No user found
         if(userRes.isEmpty())
             throw new UsernameNotFoundException("Could not findUser with email = " + email);
@@ -37,4 +39,14 @@ public class MyUserDetailsService implements UserDetailsService {
                 user.getPassword(),
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))); // Sets the role of the found user
     }
+
+    public void LoadAll() throws UsernameNotFoundException{
+        List<User> userRes = userRepo.findAll();
+
+        for (User user : userRes){
+            System.out.println(user.getId());
+            System.out.println(user);
+        }
+    }
+
 }

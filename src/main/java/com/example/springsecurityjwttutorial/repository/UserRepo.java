@@ -12,5 +12,5 @@ public interface UserRepo extends JpaRepository<User, Long> {
     // Defines a custom method to find a User using the email attribute
     public Optional<User> findByEmail(String email);
 
-    public ArrayList<User> listAll();
+
 }
