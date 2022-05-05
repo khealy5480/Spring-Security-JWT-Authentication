@@ -19,6 +19,7 @@ public class JWTUtil {
     @Value("${jwt-secret}")
     private String secret;
 
+
     // Method to sign and create a JWT using the injected secret
     public String generateToken(String email) throws IllegalArgumentException, JWTCreationException {
         return JWT.create()
