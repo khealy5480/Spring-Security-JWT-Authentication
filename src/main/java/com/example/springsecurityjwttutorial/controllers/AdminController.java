@@ -20,7 +20,7 @@ public class AdminController {
 
     // Defining the function to handle the GET route to fetch user information of the authenticated user
     @GetMapping("/users")
-    public List<User> getUseList(){
+    public List<User> getUserList(){
 
         // Fetch and return user details
         return userRepo.findAll();

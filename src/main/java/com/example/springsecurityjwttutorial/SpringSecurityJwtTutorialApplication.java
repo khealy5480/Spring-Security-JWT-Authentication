@@ -3,6 +3,7 @@ package com.example.springsecurityjwttutorial;
 import com.example.springsecurityjwttutorial.entity.User;
 import com.example.springsecurityjwttutorial.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,10 +16,13 @@ import java.util.stream.Stream;
 public class SpringSecurityJwtTutorialApplication {
 	@Autowired
 	UserRepo userRepo;
+	@Value("${EvaPass}")
+	String password;
 
 	@PostConstruct
 	public void initUsers() {
 		List<User> users = Stream.of(
+			new User(100L, "kevinhealy", "kevinhealy@verizon.net", password,"Admin"),
 			new User(101L, "Name1", "test1@nowhere.com", "pass1","user"),
 			new User(102L, "Name2", "test2@nowhere.com", "pass2","user"),
 			new User(103L, "Name3", "test3@nowhere.com", "pass3","user"),
