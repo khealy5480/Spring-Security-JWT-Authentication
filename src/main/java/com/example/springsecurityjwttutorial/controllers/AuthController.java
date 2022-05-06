@@ -56,14 +56,15 @@ public class AuthController {
     @PostMapping("/login")
     public Map<String, Object> loginHandler(@RequestBody LoginCredentials body){
         try {
+            System.out.println("I'm starting: "+ body.getEmail() + " "+ body.getPassword());
             // Creating the Authentication Token which will contain the credentials for authenticating
             // This token is used as input to the authentication process
             UsernamePasswordAuthenticationToken authInputToken =
                     new UsernamePasswordAuthenticationToken(body.getEmail(), body.getPassword());
-
+            System.out.println("I'm not successful yet.");
             // Authenticating the Login Credentials
             authManager.authenticate(authInputToken);
-
+            System.out.println("I'm Successful");
             // If this point is reached it means Authentication was successful
             // Generate the JWT
             String token = jwtUtil.generateToken(body.getEmail());
